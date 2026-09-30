@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Hunter Turn Chess</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Monster Hunter: Turn Chess</h1>
+            <div id="turn-display">Turno: <span id="current-turn">Caçador</span></div>
+        </header>
+
+        <div id="main-layout">
+            <!-- Painel Esquerdo: Status do Caçador e Inventário/Crafting -->
+            <aside id="left-panel" class="panel">
+                <h2>🎒 Acampamento / Caçador</h2>
+                <div class="status-box">
+                    <p><strong>Vida:</strong> <span id="hunter-hp">100</span>/100</p>
+                    <p><strong>Status:</strong> <span id="hunter-status" class="status-none">Nenhum</span></p>
+                </div>
+                
+                <h3>Inventário</h3>
+                <ul id="inventory-list"></ul>
+
+                <h3>Forja de Itens (Crafting)</h3>
+                <div id="crafting-box">
+                    <button onclick="craftItem('Potion')">Criar Poção (Erva x1)</button>
+                    <button onclick="craftItem('Mega Potion')">Criar Mega Poção (Poção x1 + Mel x1)</button>
+                    <button onclick="craftItem('Antidote')">Criar Antídoto (Planta Antídoto x1)</button>
+                </div>
+                
+                <div id="outside-actions">
+                    <h3>Ações fora de Combate</h3>
+                    <button onclick="useItemOutside('Potion')">Usar Poção</button>
+                    <button onclick="useItemOutside('Mega Potion')">Usar Mega Poção</button>
+                    <button onclick="useItemOutside('Antidote')">Usar Antídoto</button>
+                </div>
+            </aside>
+
+            <!-- Centro: Tabuleiro de Xadrez -->
+            <main id="board-container">
+                <div id="chessboard"></div>
+            </main>
+
+            <!-- Painel Direito: Status do Monstro e Log -->
+            <aside id="right-panel" class="panel">
+                <h2>🐉 Alvo: Rathalos</h2>
+                <div class="status-box">
+                    <p><strong>Vida:</strong> <span id="monster-hp">150</span>/150</p>
+                    <p><strong>Status:</strong> <span id="monster-status" class="status-none">Nenhum</span></p>
+                </div>
+
+                <h3>Ações de Combate</h3>
+                <div id="combat-actions">
+                    <p class="instruction">Selecione o Caçador (C) e clique em uma casa adjacente para mover/atacar, ou use um item:</p>
+                    <button onclick="useItemInCombat('Potion')">Usar Poção</button>
+                    <button onclick="useItemInCombat('Mega Potion')">Usar Mega Poção</button>
+                    <button onclick="useItemInCombat('Antidote')">Usar Antídoto</button>
+                </div>
+
+                <h3>Log de Batalha</h3>
+                <div id="battle-log"></div>
+            </aside>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
