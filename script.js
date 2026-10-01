@@ -613,3 +613,24 @@ function craftItem(itemName) {
 
 function useItemOutside(itemName) {
     if (game.inCombat) {
+// Seleciona o elemento do fundo
+const background = document.getElementById('game-background');
+
+// Configurações de movimento
+let backgroundPositionX = 0;
+const speed = 2; // Velocidade da rolagem do cenário
+
+// Função principal de atualização do jogo (Game Loop)
+function updateGame() {
+    // Desloca a posição do background para a esquerda
+    backgroundPositionX -= speed;
+    
+    // Aplica a nova posição ao estilo CSS
+    background.style.backgroundPositionX = `${backgroundPositionX}px`;
+
+    // Chama o próximo frame da animação de forma otimizada
+    requestAnimationFrame(updateGame);
+}
+
+// Inicia o loop do jogo
+requestAnimationFrame(updateGame);

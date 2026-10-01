@@ -280,3 +280,48 @@ button:hover {
 .status-fire { color: #ff6600; font-weight: bold; }
 .status-water { color: #3399ff; font-weight: bold; }
 .status-none { color: #888; }
+/* Reseta margens e esconde barras de rolagem padrões do navegador */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Janela/Tela do jogo */
+#game-container {
+    width: 800px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #fff;
+    background-color: #4ba3a5; /* Cor de fallback baseada no céu da imagem */
+}
+
+/* O fundo que vai se mover */
+#game-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Substitua pelo caminho correto da sua imagem */
+    background-image: url('sua-imagem.png'); 
+    background-repeat: repeat-x; /* Permite a repetição horizontal infinita */
+    background-size: auto 100%; /* Ajusta a altura ao container e mantém a proporção */
+    background-position: 0 0;
+}
+
+/* Exemplo visual de um jogador */
+#player {
+    width: 40px;
+    height: 60px;
+    background-color: red;
+    position: absolute;
+    bottom: 40px;
+    left: 100px;
+}
